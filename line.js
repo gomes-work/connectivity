@@ -8,6 +8,13 @@ const configFile = process.argv[2] || './hosts.yml'
 
 console.log(`Using config file: ${configFile}`);
 
+const IP_ADDRESS_PATTERN = /^\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}$/;
+const PORTS_PATTERN = /^\d+(,\W*\d+\W*)*$/;
+
+Array.prototype.flatMap = function(fn) {
+    return [].concat.apply([], this.map(fn));
+}
+
 function tcpTest(addr) {
     return new Promise(function(resolve, reject) {
         const client = new net.Socket();
@@ -33,6 +40,10 @@ function tcpTest(addr) {
 
 function resolveAddress(addr) {
     return new Promise((resolve) => {
+        if (IP_ADDRESS_PATTERN.test(addr.host)) {
+            resolve(addr);
+            return;
+        }
         dns.lookup(addr.host, (err, resolvedAddresses) => {
             resolve(Object.assign({}, addr, {host: `${addr.host}(${err || resolvedAddresses})`})); 
         });
@@ -73,16 +84,18 @@ function parseLine(line) {
     if (line.startsWith('#') || line.trim().length === 0) return [];
 
     const [host, portsString = ''] = line.split(':');
-    const ports = portsString.split(',').map(x => parseInt(x.trim()));
 
+    if (!PORTS_PATTERN.test(portsString)) throw new Error(`Padrão de portas inválido para o host ${host} -> ${portsString}`);
+    
+    const ports = portsString.split(',').map(x => parseInt(x.trim()));
     return ports.map(port => `${host}:${port}`);
 }
 
 const lines = fs.readFileSync(configFile, 'utf8') || '';
 
+
 const hostList = lines.split('\n')
-     .map(parseLine)
-     .reduce((acc, val) => acc.concat(...val), []);
+     .flatMap(parseLine);
 
 testByCategory('sample', hostList);
 //console.log(hostList);
