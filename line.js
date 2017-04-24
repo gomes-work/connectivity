@@ -69,6 +69,9 @@ function testByCategory(category, hosts) {
 }
 
 function parseLine(line) {
+    
+    if (line.startsWith('#') || line.trim().length === 0) return [];
+
     const [host, portsString = ''] = line.split(':');
     const ports = portsString.split(',').map(x => parseInt(x.trim()));
 
