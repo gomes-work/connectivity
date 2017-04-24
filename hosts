@@ -1,0 +1,46 @@
+##
+# Host Database
+#
+# localhost is used to configure the loopback interface
+# when the system is booting.  Do not change this entry.
+##
+127.0.0.1	localhost
+255.255.255.255	broadcasthost
+::1             localhost 
+
+
+#10.129.165.25 albpm-soa alsb3-soa alsb2-soa osb-spn aldsp-soa wli-soa wli-mecsol-soa wli-spn wli-sigan wlppre-soa
+#10.129.165.24 soa-coherence soa-cache bpel-lte-soa bpel-habremota-soa soa-eai1 soa-eai2 soa-m2m osb-eai1 osb-eai-coherence soa-spn soa-oms soa-oms-pj soa-oms-b2b soa-oms-b2c soa-batch soa-online osb-soa
+#### QA1 #################
+#10.129.165.22 soa-coherence soa-cache bpel-lte-soa bpel-habremota-soa soa-eai1 soa-eai2 soa-m2m osb-eai1 osb-eai-coherence soa-spn soa-oms soa-oms-pj soa-oms-b2b soa-oms-b2c soa-batch soa-online osb-soa
+#10.129.165.23 albpm-soa alsb3-soa alsb2-soa osb-spn aldsp-soa wli-soa wli-mecsol-soa wli-spn wli-sigan wlppre-soa
+#10.129.181.150	fopaqa
+#10.129.175.145	mvaqa
+#10.129.175.27	mvapp
+##########################
+
+
+#### QA2 #################
+#10.130.165.26 soa-coherence soa-cache bpel-lte-soa bpel-habremota-soa soa-eai1 soa-eai2 soa-m2m osb-eai1 osb-eai-coherence soa-spn soa-oms soa-oms-pj soa-oms-b2b soa-oms-b2c soa-batch soa-online osb-soa
+#10.129.165.27 albpm-soa alsb3-soa alsb2-soa osb-spn aldsp-soa wli-soa wli-mecsol-soa wli-spn wli-sigan wlphom2-soa
+#10.129.228.160	fopaqa
+#10.129.181.103	mvaqa
+#10.129.181.153  mvapp
+
+##########################
+
+#### QA3 #################
+#10.129.165.51 soa-coherence soa-cache bpel-lte-soa bpel-habremota-soa soa-eai1 soa-eai2 soa-m2m osb-eai1 osb-eai-coherence soa-spn soa-oms soa-oms-pj soa-oms-b2b soa-oms-b2c soa-batch soa-online osb-soa
+#10.129.165.52 albpm-soa alsb3-soa alsb2-soa osb-spn aldsp-soa wli-soa wli-mecsol-soa wli-spn wli-sigan wlphom2-soa
+#10.129.228.162 fopaqa
+#10.129.181.104 mvaqa
+#10.129.181.154 mvapp
+##########################
+
+#### Pre-Prod #################
+10.129.181.154 soa-coherence soa-cache bpel-lte-soa bpel-habremota-soa soa-eai1 soa-eai2 soa-m2m osb-eai1 osb-eai-coherence soa-spn soa-oms soa-oms-pj soa-oms-b2b soa-oms-b2c soa-batch soa-online osb-soa
+10.129.165.52 albpm-soa alsb3-soa alsb2-soa osb-spn aldsp-soa wli-soa wli-mecsol-soa wli-spn wli-sigan wlphom2-soa
+10.129.228.162 fopaqa
+10.129.181.104 mvaqa
+10.129.181.154 mvapp
+##########################
