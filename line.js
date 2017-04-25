@@ -51,7 +51,7 @@ function resolveAddress(addr) {
 }
 
 function printResult({host, port, error}) {
-    console.log(`\t${host}:${port} - ${error ? 'ERR' : 'OK'}`);
+    console.log(`\t \x1b[${error?31:32}m ${host}:${port} - ${error ? 'ERR' : 'OK'}`);
 }
 
 function toHostObject(line) {
